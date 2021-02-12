@@ -1,0 +1,8 @@
+@import '../styles/variables.scss';
+
+.airbnbList {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  background-color: $background;
+}
