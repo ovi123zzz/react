@@ -1,0 +1,12 @@
+.followers {
+  width: 200px;
+  height: 200px;
+  border: black 2px solid;
+  border-radius: 5px;
+  margin: 5px;
+  padding: 5px;
+}
+.followersWrapper {
+  display: flex;
+  flex-direction: row;
+}
