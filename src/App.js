@@ -7,6 +7,9 @@ import iconTw from './images/icon-twitter.svg'
 import iconYt from './images/icon-youtube.svg'
 import FollowersList from './TotalFollowersList/FollowersList';
 import StateEx from './StateEx'
+import Hooks from './ReactHooks/Hooks'
+import ProductList from './ProductList/ProductList';
+
 
 import {
   BrowserRouter as Router,
@@ -99,6 +102,12 @@ function App() {
             <li>
               <Link to="/stateEx">State exercise</Link>
             </li>
+            <li>
+              <Link to="/hookEx">Hook exercise</Link>
+            </li>
+            <li>
+              <Link to="/product">Product list exercise</Link>
+            </li>
           </ul>
         </nav>
 
@@ -110,6 +119,12 @@ function App() {
           </Route>
           <Route path="/stateEx">
            <StateEx/>
+          </Route>
+          <Route path="/hookEx">
+            <Hooks name="Ovidiu"/>
+          </Route>
+          <Route path="/product">
+            <ProductList/>
           </Route>
           <Route path="/">
             <PlaceList airbnbList={airbnbPlaces}/>
