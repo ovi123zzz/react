@@ -1,5 +1,5 @@
 
-import style from './App.module.css';
+import style from './App.css';
 import PlaceList from './AirbnbList/PlaceList'
 import iconFb from './images/icon-facebook.svg'
 import iconIg from './images/iconInstagram.svg'
@@ -9,14 +9,18 @@ import FollowersList from './TotalFollowersList/FollowersList';
 import StateEx from './StateEx'
 import Hooks from './ReactHooks/Hooks'
 import ProductList from './ProductList/ProductList';
-
-
+import { Button } from 'antd';
+import { Menu } from 'antd';
+import { MailOutlined, AppstoreOutlined, SettingOutlined } from '@ant-design/icons';
+import {useState} from 'react'
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+
+const { SubMenu } = Menu;
 
 const airbnbPlaces = [{
   img: 'https://pix10.agoda.net/hotelImages/167/167577/167577_15020322560025067789.jpg?s=1024x768',
@@ -86,30 +90,39 @@ const socialDashboard = [
     // image: iconYt
   }
 ]
+
+
 function App() {
+  const [current, setCurrent] = useState()
+ const handleClick = e => {
+    console.log('click ', e);
+    setCurrent({ current: e.key });
+  };
   return (
     <>
  <Router>
       <div>
-        <nav>
-          <ul>
-            <li>
+      <Menu onClick={handleClick} selectedKeys={[current]} mode="horizontal">
+        <Menu.Item key="mail" icon={<MailOutlined />}>
+       
               <Link to="/">Place list</Link>
-            </li>
-            <li>
-              <Link to="/followers">Followers List</Link>
-            </li>
-            <li>
-              <Link to="/stateEx">State exercise</Link>
-            </li>
-            <li>
-              <Link to="/hookEx">Hook exercise</Link>
-            </li>
-            <li>
-              <Link to="/product">Product list exercise</Link>
-            </li>
-          </ul>
-        </nav>
+           
+        </Menu.Item>
+        <Menu.Item key="two" icon={<AppstoreOutlined />}>
+        <Link to="/followers">Followers List</Link>
+        </Menu.Item>
+        <Menu.Item key="three" icon={<SettingOutlined />}>
+        <Link to="/stateEx">State exercise</Link>
+        </Menu.Item>
+        <Menu.Item key="four" icon={<MailOutlined />}>
+        <Link to="/hookEx">Hook exercise</Link>
+        </Menu.Item>
+        <Menu.Item key="five" icon={<MailOutlined />}>
+        <Link to="/product">Product list exercise</Link>
+        </Menu.Item>
+      
+    </Menu>
+        
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
